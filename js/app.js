@@ -203,9 +203,18 @@ class ColorMemoryGame {
         const newColor = colors[Math.floor(Math.random() * colors.length)];
         this.sequence.push(newColor);
 
-        // Update speed based on round
-        if (this.round % this.speedIncrementInterval === 0) {
-            this.speed = Math.max(300, this.speed - this.speedIncrement);
+        // Improved difficulty curve: keep initial speed longer, increase gradually
+        // Rounds 1-30: stay at 600ms (very easy, good for flow state)
+        // Rounds 31-60: decrease 50ms every 10 rounds (medium)
+        // Rounds 60+: decrease 30ms every 10 rounds (harder)
+        if (this.round <= 30) {
+            this.speed = 600;
+        } else if (this.round <= 60) {
+            const stagesIn = Math.floor((this.round - 30) / 10);
+            this.speed = Math.max(350, 600 - (stagesIn * 50));
+        } else {
+            const stagesIn = Math.floor((this.round - 60) / 10);
+            this.speed = Math.max(300, 350 - (stagesIn * 30));
         }
 
         // Update UI
