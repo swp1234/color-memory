@@ -153,6 +153,32 @@ body {
 .header-actions {
     display: flex;
     gap: 8px;
+    align-items: center;
+}
+
+/* Sound Toggle */
+.sound-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--dark-surface);
+    border: 1px solid var(--dark-border);
+    color: var(--light-text);
+    font-size: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sound-toggle:hover {
+    background: var(--dark-border);
+    transform: scale(1.05);
+}
+
+.sound-toggle:active {
+    transform: scale(0.95);
 }
 
 /* Language Selector */

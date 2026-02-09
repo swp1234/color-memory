@@ -295,6 +295,15 @@ class ColorMemoryGame {
         // Check if user completed the round
         if (this.userSequence.length === this.sequence.length) {
             this.isUserTurn = false;
+
+            // Play success sound
+            if (window.sfx) {
+                if (!window.sfx.initialized) {
+                    window.sfx.init();
+                }
+                window.sfx.success();
+            }
+
             setTimeout(() => {
                 this.round++;
                 this.playCount++;
@@ -314,8 +323,14 @@ class ColorMemoryGame {
     // ========================
 
     playSound(color) {
-        if (!this.audioContext) return;
+        if (!window.sfx) return;
 
+        // Initialize sound engine on first call
+        if (!window.sfx.initialized) {
+            window.sfx.init();
+        }
+
+        // Color-based musical notes using sound engine
         const frequencies = {
             red: 261.63,     // C4
             blue: 329.63,    // E4
@@ -323,24 +338,8 @@ class ColorMemoryGame {
             yellow: 523.25   // C5
         };
 
-        try {
-            const osc = this.audioContext.createOscillator();
-            const gain = this.audioContext.createGain();
-
-            osc.connect(gain);
-            gain.connect(this.audioContext.destination);
-
-            osc.frequency.value = frequencies[color];
-            osc.type = 'sine';
-
-            gain.gain.setValueAtTime(0.3, this.audioContext.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.2);
-
-            osc.start(this.audioContext.currentTime);
-            osc.stop(this.audioContext.currentTime + 0.2);
-        } catch (e) {
-            console.log('Could not play sound', e);
-        }
+        const freq = frequencies[color] || 400;
+        window.sfx.playOscillator(freq, 0.2, 'sine', { attack: 0.01, decay: 0.15, sustain: 0 });
     }
 
     // ========================
@@ -351,6 +350,14 @@ class ColorMemoryGame {
         this.gameOver = true;
         this.isUserTurn = false;
         this.playCount++;
+
+        // Play game over sound
+        if (window.sfx) {
+            if (!window.sfx.initialized) {
+                window.sfx.init();
+            }
+            window.sfx.error();
+        }
 
         // Error feedback
         this.colorGrid.classList.add('error');
