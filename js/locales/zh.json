@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "色彩记忆测试",
-    "subtitle": "测试您的记忆能力"
+    "subtitle": "测试您的记忆能力",
+    "loading": "加载中..."
   },
   "game": {
     "round": "轮次",

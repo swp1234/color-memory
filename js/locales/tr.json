@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Renk Hafızası Testi",
-    "subtitle": "Hafıza becerilerinizi test edin"
+    "subtitle": "Hafıza becerilerinizi test edin",
+    "loading": "Yükleniyor..."
   },
   "game": {
     "round": "Tur",

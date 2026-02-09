@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Test de Mémoire des Couleurs",
-    "subtitle": "Testez vos compétences en mémoire"
+    "subtitle": "Testez vos compétences en mémoire",
+    "loading": "Chargement..."
   },
   "game": {
     "round": "Manche",

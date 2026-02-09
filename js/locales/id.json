@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Tes Memori Warna",
-    "subtitle": "Uji kemampuan memori Anda"
+    "subtitle": "Uji kemampuan memori Anda",
+    "loading": "Memuat..."
   },
   "game": {
     "round": "Putaran",

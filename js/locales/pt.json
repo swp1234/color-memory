@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Teste de Memória de Cores",
-    "subtitle": "Teste suas habilidades de memória"
+    "subtitle": "Teste suas habilidades de memória",
+    "loading": "Carregando..."
   },
   "game": {
     "round": "Rodada",
