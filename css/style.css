@@ -1090,3 +1090,14 @@ select:focus-visible {
         opacity: 0;
     }
 }
+
+/* Selection Color */
+::selection {
+    background: #FF6B6B;
+    color: white;
+}
+
+::-moz-selection {
+    background: #FF6B6B;
+    color: white;
+}
