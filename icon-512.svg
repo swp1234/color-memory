@@ -1,33 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <style>
-      .circle { fill-opacity: 0.9; }
-    </style>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2979af;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
   </defs>
-
-  <!-- Background -->
-  <rect width="512" height="512" fill="#0f0f0f"/>
-
-  <!-- Brain outline -->
-  <path d="M 256 80 C 293 80 320 107 320 147 C 320 173 310 195 293 213 L 293 267 C 293 307 267 333 227 333 L 218 333 C 178 333 152 307 152 267 L 152 213 C 135 195 125 173 125 147 C 125 107 152 80 189 80 Q 224 67 256 80 Z" fill="none" stroke="#FF6B6B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Color Grid - 2x2 -->
-  <g class="color-grid">
-    <!-- Red circle -->
-    <circle cx="192" cy="320" r="58" class="circle" fill="#FF6B6B"/>
-
-    <!-- Blue circle -->
-    <circle cx="320" cy="320" r="58" class="circle" fill="#4ECDC4"/>
-
-    <!-- Green circle -->
-    <circle cx="192" cy="415" r="58" class="circle" fill="#2ECC71"/>
-
-    <!-- Yellow circle -->
-    <circle cx="320" cy="415" r="58" class="circle" fill="#FFE66D"/>
+  <rect width="512" height="512" fill="url(#grad1)"/>
+  <g transform="translate(256, 256)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="200" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+    <text x="0" y="0" font-size="180" text-anchor="middle" dominant-baseline="central" fill="white" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" opacity="0.95">🎨</text>
   </g>
-
-  <!-- Highlight on brain -->
-  <circle cx="227" cy="147" r="22" fill="#FFE66D" opacity="0.7"/>
-  <circle cx="208" cy="173" r="14" fill="#4ECDC4" opacity="0.7"/>
-  <circle cx="272" cy="160" r="16" fill="#2ECC71" opacity="0.7"/>
+  <g transform="translate(256, 256)">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  </g>
 </svg>
