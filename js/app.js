@@ -59,36 +59,51 @@ class ColorMemoryGame {
 
     _loadBestScore() {
         try {
-            return parseInt(localStorage.getItem('colorMemory_bestScore')) || 0;
+            if (typeof localStorage === 'undefined') return 0;
+            const saved = localStorage.getItem('colorMemory_bestScore');
+            if (!saved) return 0;
+            const parsed = parseInt(saved, 10);
+            return isNaN(parsed) ? 0 : parsed;
         } catch (e) {
-            console.warn('localStorage not available (private/incognito mode)', e);
+            console.warn('localStorage not available (private/incognito mode):', e.message);
             return 0;
         }
     }
 
     _saveBestScore(score) {
         try {
+            if (typeof localStorage === 'undefined') return;
+            if (isNaN(score) || score < 0) return;
             localStorage.setItem('colorMemory_bestScore', score.toString());
         } catch (e) {
-            console.warn('Could not save best score', e);
+            console.warn('Could not save best score:', e.message);
         }
     }
 
     initAudio() {
-        // Initialize Web Audio API for sound effects
+        // Initialize Web Audio API for sound effects (with fallback)
         try {
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             this.audioContext = new AudioContext();
         } catch (e) {
-            console.log('Web Audio API not supported');
+            console.warn('Web Audio API not supported:', e.message);
+            this.audioContext = null;
         }
     }
 
     setupLanguageSystem() {
-        // Initialize i18n
-        window.i18n.initI18n().then(() => {
-            this.updateUIText();
-        });
+        // Initialize i18n with error handling
+        try {
+            if (window.i18n && typeof window.i18n.initI18n === 'function') {
+                window.i18n.initI18n().then(() => {
+                    this.updateUIText();
+                }).catch((e) => {
+                    console.warn('i18n init failed:', e.message);
+                });
+            }
+        } catch (e) {
+            console.warn('Could not initialize i18n:', e.message);
+        }
 
         // Language change listener
         document.addEventListener('languageChanged', () => {
