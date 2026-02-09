@@ -3,8 +3,13 @@
  * Enables offline functionality and caching
  */
 
+/**
+ * Service Worker for Color Memory Game
+ * Enables offline functionality with advanced caching strategies
+ */
+
 const CACHE_NAME = 'color-memory-v1';
-const urlsToCache = [
+const ASSETS = [
     './',
     './index.html',
     './css/style.css',
@@ -31,12 +36,13 @@ const urlsToCache = [
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache).catch(error => {
+            return cache.addAll(ASSETS).catch(error => {
                 console.warn('Cache addAll failed:', error);
                 // Continue even if some assets fail to cache
             });
         })
     );
+    self.skipWaiting();
 });
 
 // Fetch event - serve from cache, fallback to network
@@ -93,4 +99,5 @@ self.addEventListener('activate', event => {
             );
         })
     );
+    self.clients.claim();
 });

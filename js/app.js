@@ -43,7 +43,7 @@ class ColorMemoryGame {
         this.initAudio();
 
         // localStorage
-        this.bestScore = parseInt(localStorage.getItem('colorMemory_bestScore')) || 0;
+        this.bestScore = this._loadBestScore();
         this.updateBestScoreDisplay();
 
         // i18n
@@ -56,6 +56,23 @@ class ColorMemoryGame {
     // ========================
     // Initialization
     // ========================
+
+    _loadBestScore() {
+        try {
+            return parseInt(localStorage.getItem('colorMemory_bestScore')) || 0;
+        } catch (e) {
+            console.warn('localStorage not available (private/incognito mode)', e);
+            return 0;
+        }
+    }
+
+    _saveBestScore(score) {
+        try {
+            localStorage.setItem('colorMemory_bestScore', score.toString());
+        } catch (e) {
+            console.warn('Could not save best score', e);
+        }
+    }
 
     initAudio() {
         // Initialize Web Audio API for sound effects
