@@ -334,7 +334,7 @@ class ColorMemoryGame {
         const isNewRecord = (this.round - 1) > this.bestScore;
         if (isNewRecord) {
             this.bestScore = this.round - 1;
-            localStorage.setItem('colorMemory_bestScore', this.bestScore);
+            this._saveBestScore(this.bestScore);
             this.recordCheck.style.display = 'block';
         } else {
             this.recordCheck.style.display = 'none';
