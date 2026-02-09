@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Renk Hafızası Testi",
+    "subtitle": "Hafıza becerilerinizi test edin"
+  },
+  "game": {
+    "round": "Tur",
+    "score": "Puan",
+    "bestScore": "En İyi",
+    "level": "Seviye",
+    "ready": "Hazır mısınız?",
+    "watching": "Renkleri izleyin",
+    "yourTurn": "Sizin sıranız",
+    "gameOver": "Oyun bitti!",
+    "yourScore": "Sizin puanınız",
+    "newRecord": "🎉 Yeni rekor!",
+    "message": {
+      "correct": "Doğru!",
+      "wrong": "Yanlış!"
+    }
+  },
+  "button": {
+    "start": "Başla",
+    "reset": "Sıfırla",
+    "playAgain": "Tekrar oyna",
+    "share": "Paylaş"
+  },
+  "share": {
+    "text": "🎮 Renk Hafızası Testinde {score} puan aldım!",
+    "copied": "Panoya kopyalandı!"
+  },
+  "rules": {
+    "title": "Oyun Kuralları",
+    "rule1": "4 renkli düğme sırayla parlıyor",
+    "rule2": "Renklere aynı sırayla dokunun",
+    "rule3": "Başarı paterne bir renk ekler",
+    "rule4": "Yanlış sıra oyunu sona erdirir",
+    "rule5": "En yüksek puanınızı geçmeyi deneyin!"
+  },
+  "stats": {
+    "totalPlays": "Toplam oyun",
+    "averageScore": "Ortalama puan",
+    "highestLevel": "En yüksek seviye"
+  }
+}

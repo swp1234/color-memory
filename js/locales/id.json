@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Tes Memori Warna",
+    "subtitle": "Uji kemampuan memori Anda"
+  },
+  "game": {
+    "round": "Putaran",
+    "score": "Skor",
+    "bestScore": "Terbaik",
+    "level": "Tingkat",
+    "ready": "Apakah Anda siap?",
+    "watching": "Amati warnanya",
+    "yourTurn": "Giliran Anda",
+    "gameOver": "Permainan berakhir!",
+    "yourScore": "Skor Anda",
+    "newRecord": "🎉 Rekor baru!",
+    "message": {
+      "correct": "Benar!",
+      "wrong": "Salah!"
+    }
+  },
+  "button": {
+    "start": "Mulai",
+    "reset": "Atur ulang",
+    "playAgain": "Mainkan lagi",
+    "share": "Bagikan"
+  },
+  "share": {
+    "text": "🎮 Saya mendapat {score} poin di Tes Memori Warna!",
+    "copied": "Disalin ke papan klip!"
+  },
+  "rules": {
+    "title": "Aturan Permainan",
+    "rule1": "4 tombol warna menyala berurutan",
+    "rule2": "Ketuk warna dalam urutan yang sama",
+    "rule3": "Kesuksesan menambah satu warna ke pola",
+    "rule4": "Urutan yang salah mengakhiri permainan",
+    "rule5": "Coba mengalahkan skor tertinggi Anda!"
+  },
+  "stats": {
+    "totalPlays": "Total permainan",
+    "averageScore": "Skor rata-rata",
+    "highestLevel": "Tingkat tertinggi"
+  }
+}

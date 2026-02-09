@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "색상 기억력 테스트",
+    "subtitle": "당신의 기억력을 테스트하세요"
+  },
+  "game": {
+    "round": "라운드",
+    "score": "점수",
+    "bestScore": "최고",
+    "level": "레벨",
+    "ready": "준비되셨나요?",
+    "watching": "색상을 관찰하세요",
+    "yourTurn": "당신의 차례입니다",
+    "gameOver": "게임 오버!",
+    "yourScore": "당신의 점수",
+    "newRecord": "🎉 새로운 기록!",
+    "message": {
+      "correct": "정답입니다!",
+      "wrong": "틀렸습니다!"
+    }
+  },
+  "button": {
+    "start": "시작",
+    "reset": "초기화",
+    "playAgain": "다시 시작",
+    "share": "공유하기"
+  },
+  "share": {
+    "text": "🎮 색상 기억력 게임에서 {score}점을 얻었습니다!",
+    "copied": "클립보드에 복사되었습니다!"
+  },
+  "rules": {
+    "title": "게임 규칙",
+    "rule1": "4개의 색상 버튼이 순서대로 빛납니다",
+    "rule2": "같은 순서로 색상을 탭하세요",
+    "rule3": "성공하면 패턴이 1개씩 추가됩니다",
+    "rule4": "실패하면 게임이 끝납니다",
+    "rule5": "최고 기록을 경신해보세요!"
+  },
+  "stats": {
+    "totalPlays": "총 플레이",
+    "averageScore": "평균 점수",
+    "highestLevel": "최고 레벨"
+  }
+}

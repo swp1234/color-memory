@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Farbgedächtnistest",
+    "subtitle": "Testen Sie Ihre Gedächtnisfähigkeiten"
+  },
+  "game": {
+    "round": "Runde",
+    "score": "Punktzahl",
+    "bestScore": "Beste",
+    "level": "Stufe",
+    "ready": "Sind Sie bereit?",
+    "watching": "Beobachten Sie die Farben",
+    "yourTurn": "Sie sind dran",
+    "gameOver": "Spiel vorbei!",
+    "yourScore": "Ihre Punktzahl",
+    "newRecord": "🎉 Neuer Rekord!",
+    "message": {
+      "correct": "Richtig!",
+      "wrong": "Falsch!"
+    }
+  },
+  "button": {
+    "start": "Start",
+    "reset": "Zurücksetzen",
+    "playAgain": "Nochmal spielen",
+    "share": "Teilen"
+  },
+  "share": {
+    "text": "🎮 Ich habe {score} Punkte beim Farbgedächtnistest erreicht!",
+    "copied": "In die Zwischenablage kopiert!"
+  },
+  "rules": {
+    "title": "Spielregeln",
+    "rule1": "4 farbige Tasten leuchten der Reihe nach auf",
+    "rule2": "Tippen Sie die Farben in derselben Reihenfolge an",
+    "rule3": "Der Erfolg fügt ein weiteres Farbmuster hinzu",
+    "rule4": "Eine falsche Reihenfolge beendet das Spiel",
+    "rule5": "Versuchen Sie, Ihren Höchstscore zu übertreffen!"
+  },
+  "stats": {
+    "totalPlays": "Gesamtzahl der Spiele",
+    "averageScore": "Durchschnittliche Punktzahl",
+    "highestLevel": "Höchste Stufe"
+  }
+}

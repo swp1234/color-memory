@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Prueba de Memoria de Colores",
+    "subtitle": "Prueba tus habilidades de memoria"
+  },
+  "game": {
+    "round": "Ronda",
+    "score": "Puntuación",
+    "bestScore": "Mejor",
+    "level": "Nivel",
+    "ready": "¿Estás listo?",
+    "watching": "Observa los colores",
+    "yourTurn": "Tu turno",
+    "gameOver": "¡Fin del juego!",
+    "yourScore": "Tu puntuación",
+    "newRecord": "🎉 ¡Nuevo récord!",
+    "message": {
+      "correct": "¡Correcto!",
+      "wrong": "¡Incorrecto!"
+    }
+  },
+  "button": {
+    "start": "Comenzar",
+    "reset": "Reiniciar",
+    "playAgain": "Jugar de nuevo",
+    "share": "Compartir"
+  },
+  "share": {
+    "text": "🎮 ¡Obtuve {score} puntos en Memoria de Colores!",
+    "copied": "¡Copiado al portapapeles!"
+  },
+  "rules": {
+    "title": "Reglas del juego",
+    "rule1": "4 botones de color se encienden en secuencia",
+    "rule2": "Toca los colores en el mismo orden",
+    "rule3": "El éxito agrega un color al patrón",
+    "rule4": "Una secuencia incorrecta termina el juego",
+    "rule5": "¡Intenta superar tu puntuación más alta!"
+  },
+  "stats": {
+    "totalPlays": "Total de juegos",
+    "averageScore": "Puntuación promedio",
+    "highestLevel": "Nivel más alto"
+  }
+}

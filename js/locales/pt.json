@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Teste de Memória de Cores",
+    "subtitle": "Teste suas habilidades de memória"
+  },
+  "game": {
+    "round": "Rodada",
+    "score": "Pontuação",
+    "bestScore": "Melhor",
+    "level": "Nível",
+    "ready": "Você está pronto?",
+    "watching": "Observe as cores",
+    "yourTurn": "Sua vez",
+    "gameOver": "Fim do jogo!",
+    "yourScore": "Sua pontuação",
+    "newRecord": "🎉 Novo recorde!",
+    "message": {
+      "correct": "Correto!",
+      "wrong": "Incorreto!"
+    }
+  },
+  "button": {
+    "start": "Começar",
+    "reset": "Reiniciar",
+    "playAgain": "Jogar novamente",
+    "share": "Compartilhar"
+  },
+  "share": {
+    "text": "🎮 Consegui {score} pontos no Teste de Memória de Cores!",
+    "copied": "Copiado para a área de transferência!"
+  },
+  "rules": {
+    "title": "Regras do jogo",
+    "rule1": "4 botões coloridos acendem em sequência",
+    "rule2": "Toque as cores na mesma ordem",
+    "rule3": "O sucesso adiciona uma cor ao padrão",
+    "rule4": "Uma sequência incorreta termina o jogo",
+    "rule5": "Tente superar sua melhor pontuação!"
+  },
+  "stats": {
+    "totalPlays": "Total de jogos",
+    "averageScore": "Pontuação média",
+    "highestLevel": "Nível mais alto"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Color Memory Test",
+    "subtitle": "Test your memory skills"
+  },
+  "game": {
+    "round": "Round",
+    "score": "Score",
+    "bestScore": "Best",
+    "level": "Level",
+    "ready": "Are you ready?",
+    "watching": "Watch the colors",
+    "yourTurn": "Your turn",
+    "gameOver": "Game Over!",
+    "yourScore": "Your Score",
+    "newRecord": "🎉 New Record!",
+    "message": {
+      "correct": "Correct!",
+      "wrong": "Wrong!"
+    }
+  },
+  "button": {
+    "start": "Start",
+    "reset": "Reset",
+    "playAgain": "Play Again",
+    "share": "Share"
+  },
+  "share": {
+    "text": "🎮 I scored {score} points on Color Memory!",
+    "copied": "Copied to clipboard!"
+  },
+  "rules": {
+    "title": "Game Rules",
+    "rule1": "4 color buttons light up in sequence",
+    "rule2": "Tap the colors in the same order",
+    "rule3": "Success adds one more color to the pattern",
+    "rule4": "Wrong sequence ends the game",
+    "rule5": "Try to beat your highest score!"
+  },
+  "stats": {
+    "totalPlays": "Total Plays",
+    "averageScore": "Average Score",
+    "highestLevel": "Highest Level"
+  }
+}

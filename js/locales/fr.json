@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "Test de Mémoire des Couleurs",
+    "subtitle": "Testez vos compétences en mémoire"
+  },
+  "game": {
+    "round": "Manche",
+    "score": "Score",
+    "bestScore": "Meilleur",
+    "level": "Niveau",
+    "ready": "Êtes-vous prêt ?",
+    "watching": "Observez les couleurs",
+    "yourTurn": "C'est votre tour",
+    "gameOver": "Jeu terminé !",
+    "yourScore": "Votre score",
+    "newRecord": "🎉 Nouveau record !",
+    "message": {
+      "correct": "Correct !",
+      "wrong": "Incorrect !"
+    }
+  },
+  "button": {
+    "start": "Commencer",
+    "reset": "Réinitialiser",
+    "playAgain": "Rejouer",
+    "share": "Partager"
+  },
+  "share": {
+    "text": "🎮 J'ai obtenu {score} points au Test de Mémoire des Couleurs !",
+    "copied": "Copié dans le presse-papiers !"
+  },
+  "rules": {
+    "title": "Règles du jeu",
+    "rule1": "4 boutons de couleur s'allument en séquence",
+    "rule2": "Appuyez sur les couleurs dans le même ordre",
+    "rule3": "Le succès ajoute une couleur au motif",
+    "rule4": "Une séquence incorrecte termine le jeu",
+    "rule5": "Essayez de battre votre meilleur score !"
+  },
+  "stats": {
+    "totalPlays": "Nombre total de jeux",
+    "averageScore": "Score moyen",
+    "highestLevel": "Niveau le plus élevé"
+  }
+}

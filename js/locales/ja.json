@@ -1,0 +1,45 @@
+{
+  "app": {
+    "title": "色彩記憶テスト",
+    "subtitle": "あなたの記憶力を試してください"
+  },
+  "game": {
+    "round": "ラウンド",
+    "score": "スコア",
+    "bestScore": "ベスト",
+    "level": "レベル",
+    "ready": "準備はいいですか？",
+    "watching": "色を観察してください",
+    "yourTurn": "あなたの番です",
+    "gameOver": "ゲーム終了!",
+    "yourScore": "あなたのスコア",
+    "newRecord": "🎉 新記録!",
+    "message": {
+      "correct": "正解!",
+      "wrong": "間違い!"
+    }
+  },
+  "button": {
+    "start": "スタート",
+    "reset": "リセット",
+    "playAgain": "もう一度プレイ",
+    "share": "共有"
+  },
+  "share": {
+    "text": "🎮 色彩記憶で{score}点を獲得しました!",
+    "copied": "クリップボードにコピーしました!"
+  },
+  "rules": {
+    "title": "ゲームルール",
+    "rule1": "4色のボタンが順番に光ります",
+    "rule2": "同じ順番で色をタップしてください",
+    "rule3": "成功するとパターンに1色追加されます",
+    "rule4": "間違った順序でゲームが終わります",
+    "rule5": "最高スコアを目指してください!"
+  },
+  "stats": {
+    "totalPlays": "総プレイ数",
+    "averageScore": "平均スコア",
+    "highestLevel": "最高レベル"
+  }
+}
