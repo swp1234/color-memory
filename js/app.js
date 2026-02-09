@@ -5,6 +5,8 @@
 
 class ColorMemoryGame {
     constructor() {
+        this.hideLoader();
+
         // Game state
         this.sequence = [];
         this.userSequence = [];
@@ -28,6 +30,17 @@ class ColorMemoryGame {
         this.playAgainBtn = document.getElementById('play-again-btn');
         this.shareBtn = document.getElementById('share-btn');
         this.gameStatus = document.getElementById('game-status');
+    }
+
+    hideLoader() {
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('app-loader');
+            if (loader) {
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 300);
+            }
+        });
+    }
         this.roundDisplay = document.getElementById('round-display');
         this.scoreDisplay = document.getElementById('score-display');
         this.bestScoreDisplay = document.getElementById('best-score-display');

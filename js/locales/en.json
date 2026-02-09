@@ -1,7 +1,8 @@
 {
   "app": {
     "title": "Color Memory Test",
-    "subtitle": "Test your memory skills"
+    "subtitle": "Test your memory skills",
+    "loading": "Loading..."
   },
   "game": {
     "round": "Round",

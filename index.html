@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="app.title">색상 기억력 테스트</title>
-    <meta name="description" content="당신의 색상 기억력을 테스트하세요. Simon Says 스타일의 중독성 있는 게임.">
+    <title data-i18n="app.title">색상 기억력 테스트 🎨 - Color Memory</title>
+    <meta name="description" content="당신의 색상 기억력을 테스트하세요! 🎨 Simon Says 스타일의 중독성 있는 두뇌 게임. 점점 빨라지는 속도에 버틸 수 있을까?">
+    <meta name="keywords" content="색상 게임, 기억력 게임, Simon Says, 두뇌 게임, 반응속도 게임, 무료 게임">
     <meta name="theme-color" content="#FF6B6B">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="색상 기억력 테스트 - Color Memory">
-    <meta property="og:description" content="당신의 색상 기억력을 테스트하세요. Simon Says 스타일의 중독성 있는 게임.">
-    <meta property="og:type" content="game">
+    <meta property="og:title" content="색상 기억력 테스트 🎨 - 두뇌 반응 게임">
+    <meta property="og:description" content="색상 시퀀스를 따라하고 얼마나 오래 버틸 수 있는지 보세요! 🎨 중독성 있는 Simon Says 게임!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dopabrain.com/color-memory/">
     <meta property="og:image" content="https://dopabrain.com/color-memory/icon-512.svg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="색상 기억력 테스트 🎨 - 두뇌 반응 게임">
+    <meta name="twitter:description" content="색상 시퀀스를 따라하며 기억력을 테스트하세요!">
+    <meta name="twitter:image" content="https://dopabrain.com/color-memory/icon-512.svg">
+    <meta name="twitter:site" content="@dopabrain">
     <link rel="canonical" href="https://dopabrain.com/color-memory/">
 
     <!-- PWA Manifest -->
@@ -22,6 +35,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="app-loader" id="app-loader">
+        <div class="loader-content">
+            <div class="loader-emoji">🎨</div>
+            <div class="loader-spinner"></div>
+            <div class="loader-text" data-i18n="app.loading">로딩 중...</div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <header class="header">
