@@ -33,17 +33,7 @@ class ColorMemoryGame {
 
         // Leaderboard system
         this.leaderboard = new LeaderboardManager('color-memory', 10);
-    }
 
-    hideLoader() {
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('app-loader');
-            if (loader) {
-                loader.classList.add('hidden');
-                setTimeout(() => loader.remove(), 300);
-            }
-        });
-    }
         this.roundDisplay = document.getElementById('round-display');
         this.scoreDisplay = document.getElementById('score-display');
         this.bestScoreDisplay = document.getElementById('best-score-display');
@@ -67,6 +57,17 @@ class ColorMemoryGame {
 
         // Event listeners
         this.attachEventListeners();
+
+        // Hide loader
+        this.hideLoader();
+    }
+
+    hideLoader() {
+        const loader = document.getElementById('app-loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => loader.remove(), 300);
+        }
     }
 
     // ========================
@@ -606,6 +607,21 @@ class ColorMemoryGame {
 }
 
 // Initialize game when DOM is ready
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     window.game = new ColorMemoryGame();
 });
