@@ -177,6 +177,7 @@ class ColorMemoryGame {
 
         this.showGameScreen();
         this.playRound();
+        if(typeof gtag!=='undefined') gtag('event','game_start');
     }
 
     resetGame() {
@@ -379,6 +380,7 @@ class ColorMemoryGame {
         }, 500);
 
         const finalScore = this.round - 1;
+        if(typeof gtag!=='undefined') gtag('event','game_over',{score: finalScore});
         const level = Math.ceil(this.round / this.speedIncrementInterval);
 
         // Add score to leaderboard
