@@ -530,6 +530,12 @@ body {
     100% { transform: scale(1); box-shadow: 0 4px 15px rgba(52,152,219,0.3); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary {
+        animation: none !important;
+    }
+}
+
 .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
