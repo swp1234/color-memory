@@ -60,6 +60,40 @@ class ColorMemoryGame {
 
         // Hide loader
         this.hideLoader();
+
+        // Pulse start button to draw attention
+        if (this.startBtn) this.startBtn.classList.add('pulse');
+
+        // GA4 engagement tracking
+        this.engagementTracked = false;
+        this.trackFirstInteraction();
+    }
+
+    /**
+     * Track first interaction for GA4 engagement (reduces bounce rate)
+     */
+    trackFirstInteraction() {
+        const handler = () => {
+            this.trackEngagement('first_interaction');
+            document.removeEventListener('click', handler);
+            document.removeEventListener('keydown', handler);
+        };
+        document.addEventListener('click', handler, { once: true });
+        document.addEventListener('keydown', handler, { once: true });
+    }
+
+    /**
+     * Track GA4 engagement event
+     */
+    trackEngagement(label) {
+        if (this.engagementTracked) return;
+        this.engagementTracked = true;
+        if (typeof gtag === 'function') {
+            gtag('event', 'engagement', {
+                event_category: 'color_memory',
+                event_label: label
+            });
+        }
     }
 
     hideLoader() {
@@ -175,9 +209,13 @@ class ColorMemoryGame {
         this.playCount = 0;
         this.speed = 600;
 
+        // Remove pulse after first start
+        if (this.startBtn) this.startBtn.classList.remove('pulse');
+
         this.showGameScreen();
         this.playRound();
         if(typeof gtag!=='undefined') gtag('event','game_start');
+        this.trackEngagement('game_start');
     }
 
     resetGame() {
