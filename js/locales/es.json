@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 ¡Obtuve {score} puntos en Memoria de Colores!",
-    "copied": "¡Copiado al portapapeles!"
+    "copied": "✅ ¡Copiado!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 Copiar URL"
   },
   "rules": {
     "title": "Reglas del juego",

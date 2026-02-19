@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 색상 기억력 게임에서 {score}점을 얻었습니다!",
-    "copied": "클립보드에 복사되었습니다!"
+    "copied": "✅ 복사됨!",
+    "twitter": "트위터",
+    "copyUrl": "📋 URL 복사"
   },
   "rules": {
     "title": "게임 규칙",

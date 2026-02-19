@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 Ich habe {score} Punkte beim Farbgedächtnistest erreicht!",
-    "copied": "In die Zwischenablage kopiert!"
+    "copied": "✅ Kopiert!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 URL kopieren"
   },
   "rules": {
     "title": "Spielregeln",

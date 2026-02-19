@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 Saya mendapat {score} poin di Tes Memori Warna!",
-    "copied": "Disalin ke papan klip!"
+    "copied": "✅ Disalin!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 Salin URL"
   },
   "rules": {
     "title": "Aturan Permainan",

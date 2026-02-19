@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 J'ai obtenu {score} points au Test de Mémoire des Couleurs !",
-    "copied": "Copié dans le presse-papiers !"
+    "copied": "✅ Copié!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 Copier URL"
   },
   "rules": {
     "title": "Règles du jeu",

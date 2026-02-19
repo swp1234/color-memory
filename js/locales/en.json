@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 I scored {score} points on Color Memory!",
-    "copied": "Copied to clipboard!"
+    "copied": "✅ Copied!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 Copy URL"
   },
   "rules": {
     "title": "Game Rules",

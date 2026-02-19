@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 色彩記憶で{score}点を獲得しました!",
-    "copied": "クリップボードにコピーしました!"
+    "copied": "✅ コピー済み!",
+    "twitter": "Twitter",
+    "copyUrl": "📋 URLコピー"
   },
   "rules": {
     "title": "ゲームルール",

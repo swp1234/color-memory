@@ -28,7 +28,9 @@
   },
   "share": {
     "text": "🎮 我在色彩记忆游戏中得了{score}分!",
-    "copied": "已复制到剪贴板!"
+    "copied": "✅ 已复制!",
+    "twitter": "推特",
+    "copyUrl": "📋 复制链接"
   },
   "rules": {
     "title": "游戏规则",
