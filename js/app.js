@@ -202,6 +202,7 @@ class ColorMemoryGame {
     // ========================
 
     startGame() {
+        if (typeof GameAds !== 'undefined') GameAds.removeRewardButton('#game-over-screen');
         this.sequence = [];
         this.userSequence = [];
         this.round = 1;
@@ -469,6 +470,23 @@ class ColorMemoryGame {
                 bestScore: parseInt(localStorage.getItem('colorMemory_bestScore')) || 0,
                 gamesPlayed: parseInt(localStorage.getItem('colorMemory_gamesPlayed')) || 0
             });
+
+            // Rewarded ad — watch ad for 2x score
+            if (typeof GameAds !== 'undefined') {
+                GameAds.injectRewardButton({
+                    container: '#game-over-screen',
+                    label: 'Watch Ad for 2x Score',
+                    onReward: () => {
+                        const doubled = finalScore * 2;
+                        this.finalScoreDisplay.textContent = doubled;
+                        if (doubled > this.bestScore) {
+                            this.bestScore = doubled;
+                            this._saveBestScore(doubled);
+                            this.finalBestScoreDisplay.textContent = doubled;
+                        }
+                    }
+                });
+            }
         };
 
         setTimeout(() => {
