@@ -424,6 +424,7 @@ class ColorMemoryGame {
         }, 500);
 
         const finalScore = this.round - 1;
+        if (typeof DailyStreak !== 'undefined') DailyStreak.report(finalScore);
         if(typeof gtag!=='undefined') gtag('event','game_over',{score: finalScore});
         const level = Math.ceil(this.round / this.speedIncrementInterval);
 
@@ -690,4 +691,5 @@ if (themeToggle) {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.game = new ColorMemoryGame();
+    if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'color-memory', bestScoreKey: 'colorMemory_bestScore', minTarget: 3 });
 });
