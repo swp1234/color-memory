@@ -427,6 +427,8 @@ class ColorMemoryGame {
         }, 500);
 
         const finalScore = this.round - 1;
+        const cmGames = parseInt(localStorage.getItem('colorMemory_gamesPlayed')) || 0;
+        localStorage.setItem('colorMemory_gamesPlayed', cmGames + 1);
         if (typeof DailyStreak !== 'undefined') DailyStreak.report(finalScore);
         if(typeof gtag!=='undefined') gtag('event','game_over',{score: finalScore});
         const level = Math.ceil(this.round / this.speedIncrementInterval);
@@ -464,6 +466,12 @@ class ColorMemoryGame {
 
             // Show interstitial ad
             this.showInterstitialAd();
+
+            // Report achievements
+            if (typeof GameAchievements !== 'undefined') GameAchievements.report({
+                bestScore: parseInt(localStorage.getItem('colorMemory_bestScore')) || 0,
+                gamesPlayed: parseInt(localStorage.getItem('colorMemory_gamesPlayed')) || 0
+            });
         }, 500);
     }
 
@@ -695,4 +703,15 @@ if (themeToggle) {
 document.addEventListener('DOMContentLoaded', () => {
     window.game = new ColorMemoryGame();
     if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'color-memory', bestScoreKey: 'colorMemory_bestScore', minTarget: 3 });
+    if (typeof GameAchievements !== 'undefined') GameAchievements.init({
+        gameId: 'color-memory',
+        defs: [
+            { id: 'score_5', stat: 'bestScore', target: 5, icon: '\uD83C\uDFA8', name: 'Color Starter' },
+            { id: 'score_10', stat: 'bestScore', target: 10, icon: '\uD83C\uDFA8', name: 'Color Expert' },
+            { id: 'score_20', stat: 'bestScore', target: 20, icon: '\uD83C\uDFA8', name: 'Color Master' },
+            { id: 'score_30', stat: 'bestScore', target: 30, icon: '\uD83C\uDFA8', name: 'Color Legend' },
+            { id: 'games_10', stat: 'gamesPlayed', target: 10, icon: '\uD83C\uDFAE', name: 'Regular' },
+            { id: 'games_50', stat: 'gamesPlayed', target: 50, icon: '\uD83C\uDFAE', name: 'Dedicated' },
+        ]
+    });
 });
