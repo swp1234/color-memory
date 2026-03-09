@@ -449,8 +449,8 @@ class ColorMemoryGame {
             this.recordCheck.style.display = 'none';
         }
 
-        // Show game over screen
-        setTimeout(() => {
+        // Show game over screen (with interstitial ad)
+        const showGameOver = () => {
             this.showGameOverScreen();
             this.finalScoreDisplay.textContent = finalScore;
             this.finalBestScoreDisplay.textContent = this.bestScore;
@@ -464,14 +464,19 @@ class ColorMemoryGame {
                 this.showConfetti();
             }
 
-            // Show interstitial ad
-            this.showInterstitialAd();
-
             // Report achievements
             if (typeof GameAchievements !== 'undefined') GameAchievements.report({
                 bestScore: parseInt(localStorage.getItem('colorMemory_bestScore')) || 0,
                 gamesPlayed: parseInt(localStorage.getItem('colorMemory_gamesPlayed')) || 0
             });
+        };
+
+        setTimeout(() => {
+            if (typeof GameAds !== 'undefined') {
+                GameAds.showInterstitial({ onComplete: () => { showGameOver(); } });
+            } else {
+                showGameOver();
+            }
         }, 500);
     }
 
@@ -703,6 +708,7 @@ if (themeToggle) {
 document.addEventListener('DOMContentLoaded', () => {
     window.game = new ColorMemoryGame();
     if (typeof DailyStreak !== 'undefined') DailyStreak.init({ gameId: 'color-memory', bestScoreKey: 'colorMemory_bestScore', minTarget: 3 });
+    if (typeof GameAds !== 'undefined') GameAds.init();
     if (typeof GameAchievements !== 'undefined') GameAchievements.init({
         gameId: 'color-memory',
         defs: [
