@@ -340,6 +340,7 @@ class ColorMemoryGame {
         // Check sequence
         const lastIndex = this.userSequence.length - 1;
         if (this.userSequence[lastIndex] !== this.sequence[lastIndex]) {
+            if (typeof Haptic !== 'undefined') Haptic.medium();
             this.endGame();
             return;
         }
@@ -347,6 +348,7 @@ class ColorMemoryGame {
         // Check if user completed the round
         if (this.userSequence.length === this.sequence.length) {
             this.isUserTurn = false;
+            if (typeof Haptic !== 'undefined') Haptic.light();
 
             // Play success sound
             if (window.sfx) {
@@ -407,6 +409,7 @@ class ColorMemoryGame {
         this.gameOver = true;
         this.isUserTurn = false;
         this.playCount++;
+        if (typeof Haptic !== 'undefined') Haptic.heavy();
 
         // Play game over sound
         if (window.sfx) {
