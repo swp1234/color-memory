@@ -356,6 +356,11 @@ class ColorMemoryGame {
                 window.sfx.success();
             }
 
+            // Show streak milestones
+            if (this.round > 0 && this.round % 5 === 0) {
+                this.showFloatingStreak(this.round);
+            }
+
             setTimeout(() => {
                 this.round++;
                 this.playCount++;
@@ -411,8 +416,9 @@ class ColorMemoryGame {
             window.sfx.error();
         }
 
-        // Error feedback
+        // Error feedback — shake + flash
         this.colorGrid.classList.add('error');
+        this.shakeGrid();
         setTimeout(() => {
             this.colorGrid.classList.remove('error');
         }, 500);
@@ -485,6 +491,23 @@ class ColorMemoryGame {
         this.gameScreen.classList.add('hidden');
         this.gameOverScreen.classList.remove('hidden');
         this.gameOverScreen.classList.add('active');
+    }
+
+    shakeGrid() {
+        this.colorGrid.style.animation = 'cm-shake 0.4s ease';
+        setTimeout(() => { this.colorGrid.style.animation = ''; }, 450);
+    }
+
+    showFloatingStreak(round) {
+        const el = document.createElement('div');
+        el.textContent = `${round} STREAK!`;
+        el.style.cssText = 'position:fixed;top:30%;left:50%;transform:translateX(-50%);font-size:28px;font-weight:bold;color:#FFD700;z-index:9999;pointer-events:none;text-shadow:0 0 10px rgba(255,215,0,0.5);opacity:1;transition:all 1s ease-out;';
+        document.body.appendChild(el);
+        requestAnimationFrame(() => {
+            el.style.top = '20%';
+            el.style.opacity = '0';
+        });
+        setTimeout(() => el.remove(), 1200);
     }
 
     // ========================
@@ -645,6 +668,9 @@ class ColorMemoryGame {
         }, 3000);
     }
 }
+
+// Shake animation CSS
+(function(){const s=document.createElement('style');s.textContent='@keyframes cm-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';document.head.appendChild(s);})();
 
 // Initialize game when DOM is ready
 // Theme toggle functionality
