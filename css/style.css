@@ -847,6 +847,7 @@ body {
     --dark-border: #e0e0e8;
     --light-text: #1a1a2e;
     --muted-text: #5a5a70;
+    --text: #1a1a2e;
 }
 
 [data-theme="light"] body {
