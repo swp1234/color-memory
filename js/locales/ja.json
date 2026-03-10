@@ -18,7 +18,9 @@
     "message": {
       "correct": "正解!",
       "wrong": "間違い!"
-    }
+    },
+    "objective": "色の順番を覚えて繰り返してください！",
+    "objectiveHint": "ラウンドごとにシーケンスが長くなります"
   },
   "button": {
     "start": "スタート",

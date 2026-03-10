@@ -18,7 +18,9 @@
     "message": {
       "correct": "¡Correcto!",
       "wrong": "¡Incorrecto!"
-    }
+    },
+    "objective": "¡Observa la secuencia de colores y repítela de memoria!",
+    "objectiveHint": "La secuencia se alarga cada ronda"
   },
   "button": {
     "start": "Comenzar",

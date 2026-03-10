@@ -18,7 +18,9 @@
     "message": {
       "correct": "Doğru!",
       "wrong": "Yanlış!"
-    }
+    },
+    "objective": "Renk sırasını izleyin ve hafızadan tekrarlayın!",
+    "objectiveHint": "Her turda sıra uzar"
   },
   "button": {
     "start": "Başla",

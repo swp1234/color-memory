@@ -18,7 +18,9 @@
     "message": {
       "correct": "Benar!",
       "wrong": "Salah!"
-    }
+    },
+    "objective": "Perhatikan urutan warna dan ulangi dari ingatan!",
+    "objectiveHint": "Urutan semakin panjang setiap ronde"
   },
   "button": {
     "start": "Mulai",

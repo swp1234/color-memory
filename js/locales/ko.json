@@ -18,7 +18,9 @@
     "message": {
       "correct": "정답입니다!",
       "wrong": "틀렸습니다!"
-    }
+    },
+    "objective": "색상 순서를 기억하고 따라하세요!",
+    "objectiveHint": "라운드마다 시퀀스가 길어집니다"
   },
   "button": {
     "start": "시작",

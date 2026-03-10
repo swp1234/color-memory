@@ -18,7 +18,9 @@
     "message": {
       "correct": "Correct !",
       "wrong": "Incorrect !"
-    }
+    },
+    "objective": "Observez la séquence de couleurs et répétez-la de mémoire !",
+    "objectiveHint": "La séquence s'allonge à chaque manche"
   },
   "button": {
     "start": "Commencer",

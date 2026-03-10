@@ -18,7 +18,9 @@
     "message": {
       "correct": "Correto!",
       "wrong": "Incorreto!"
-    }
+    },
+    "objective": "Observe a sequência de cores e repita de memória!",
+    "objectiveHint": "A sequência fica mais longa a cada rodada"
   },
   "button": {
     "start": "Começar",

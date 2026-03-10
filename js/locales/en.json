@@ -18,7 +18,9 @@
     "message": {
       "correct": "Correct!",
       "wrong": "Wrong!"
-    }
+    },
+    "objective": "Watch the color sequence and repeat it from memory!",
+    "objectiveHint": "The sequence gets longer each round"
   },
   "button": {
     "start": "Start",
