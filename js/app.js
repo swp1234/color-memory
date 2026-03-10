@@ -342,6 +342,7 @@ class ColorMemoryGame {
         const lastIndex = this.userSequence.length - 1;
         if (this.userSequence[lastIndex] !== this.sequence[lastIndex]) {
             if (typeof Haptic !== 'undefined') Haptic.medium();
+            this.shakeScreen(3, 6);
             this.endGame();
             return;
         }
@@ -359,7 +360,10 @@ class ColorMemoryGame {
                 window.sfx.success();
             }
 
-            // Show streak milestones
+            // Floating "Correct!" text
+            this.showFloatingText('Correct!', '#2ecc71');
+
+            // Show streak milestones every 5 rounds
             if (this.round > 0 && this.round % 5 === 0) {
                 this.showFloatingStreak(this.round);
             }
@@ -367,6 +371,9 @@ class ColorMemoryGame {
             setTimeout(() => {
                 this.round++;
                 this.playCount++;
+
+                // Level milestone popup at each new round
+                this.showLevelMilestone(this.round);
 
                 // Check for interstitial ad every 3 plays
                 if (this.playCount % 3 === 0) {
@@ -543,6 +550,48 @@ class ColorMemoryGame {
             el.style.opacity = '0';
         });
         setTimeout(() => el.remove(), 1200);
+    }
+
+    showFloatingText(text, color = '#2ecc71') {
+        const el = document.createElement('div');
+        el.textContent = text;
+        el.style.cssText = 'position:fixed;top:40%;left:50%;transform:translateX(-50%);font-size:24px;font-weight:800;color:' + color + ';z-index:9999;pointer-events:none;text-shadow:0 0 10px ' + color + '40;opacity:1;transition:all 0.7s ease-out;';
+        document.body.appendChild(el);
+        requestAnimationFrame(() => {
+            el.style.top = '30%';
+            el.style.opacity = '0';
+        });
+        setTimeout(() => el.remove(), 800);
+    }
+
+    shakeScreen(intensity = 3, frames = 6) {
+        const duration = Math.max(frames * (1000 / 60), 200);
+        const px = intensity;
+        const keyframes = `@keyframes cm-shake-dynamic{0%,100%{transform:translateX(0)}25%{transform:translateX(-${px}px)}50%{transform:translateX(${px}px)}75%{transform:translateX(-${Math.ceil(px/2)}px)}}`;
+        const s = document.createElement('style');
+        s.textContent = keyframes;
+        document.head.appendChild(s);
+        this.colorGrid.style.animation = `cm-shake-dynamic ${duration}ms ease`;
+        setTimeout(() => {
+            this.colorGrid.style.animation = '';
+            s.remove();
+        }, duration + 50);
+    }
+
+    showLevelMilestone(round) {
+        const el = document.createElement('div');
+        el.textContent = 'Level ' + round + '!';
+        el.style.cssText = 'position:fixed;top:45%;left:50%;transform:translate(-50%,-50%) scale(0.5);font-size:32px;font-weight:900;color:#3498db;z-index:9999;pointer-events:none;text-shadow:0 0 15px rgba(52,152,219,0.5);opacity:0;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);';
+        document.body.appendChild(el);
+        requestAnimationFrame(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translate(-50%,-50%) scale(1)';
+        });
+        setTimeout(() => {
+            el.style.opacity = '0';
+            el.style.transform = 'translate(-50%,-50%) scale(1.3)';
+        }, 800);
+        setTimeout(() => el.remove(), 1300);
     }
 
     // ========================
