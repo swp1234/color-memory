@@ -8,7 +8,7 @@
  * Enables offline functionality with advanced caching strategies
  */
 
-const CACHE_NAME = 'color-memory-v2';
+const CACHE_NAME = 'color-memory-v3';
 const ASSETS = [
     './',
     './index.html',
