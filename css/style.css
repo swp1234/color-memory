@@ -49,6 +49,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Background image overlay */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('../assets/bg-opt.png') center / cover no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
 /* === App Loader === */
 .app-loader {
     position: fixed;
