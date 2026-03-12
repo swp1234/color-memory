@@ -11,6 +11,8 @@ class ColorMemoryGame {
         this.sequence = [];
         this.userSequence = [];
         this.round = 1;
+        this.lives = 3;
+        this.maxLives = 3;
         this.isPlayingSequence = false;
         this.isUserTurn = false;
         this.gameOver = false;
@@ -58,9 +60,6 @@ class ColorMemoryGame {
         // Event listeners
         this.attachEventListeners();
 
-        // Hide loader
-        this.hideLoader();
-
         // Pulse start button to draw attention
         if (this.startBtn) this.startBtn.classList.add('pulse');
 
@@ -98,10 +97,15 @@ class ColorMemoryGame {
 
     hideLoader() {
         const loader = document.getElementById('app-loader');
-        if (loader) {
-            loader.classList.add('hidden');
-            setTimeout(() => loader.remove(), 300);
-        }
+        if (!loader) return;
+        const start = Date.now();
+        const check = setInterval(() => {
+            if ((window.i18n && window.i18n.initialized) || Date.now() - start > 2000) {
+                clearInterval(check);
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 300);
+            }
+        }, 50);
     }
 
     // ========================
@@ -220,16 +224,24 @@ class ColorMemoryGame {
 
     startGame() {
         if (typeof GameAds !== 'undefined') GameAds.removeRewardButton('#game-over-screen');
-        this.sequence = [];
         this.userSequence = [];
         this.round = 1;
+        this.lives = 3;
         this.gameOver = false;
         this.playCount = 0;
         this.speed = 600;
 
+        // Pre-seed sequence with 2 colors so round 1 starts with 3
+        const colors = ['red', 'blue', 'green', 'yellow'];
+        this.sequence = [
+            colors[Math.floor(Math.random() * 4)],
+            colors[Math.floor(Math.random() * 4)]
+        ];
+
         // Remove pulse after first start
         if (this.startBtn) this.startBtn.classList.remove('pulse');
 
+        this.updateLivesDisplay();
         this.showGameScreen();
         this.playRound();
         if(typeof gtag!=='undefined') gtag('event','game_start');
@@ -240,12 +252,14 @@ class ColorMemoryGame {
         this.sequence = [];
         this.userSequence = [];
         this.round = 1;
+        this.lives = 3;
         this.gameOver = false;
         this.playCount = 0;
         this.speed = 600;
 
         this.updateRoundDisplay();
         this.updateScoreDisplay();
+        this.updateLivesDisplay();
         this.gameStatus.textContent = window.i18n.t('game.ready');
         this.startBtn.disabled = false;
     }
@@ -360,7 +374,18 @@ class ColorMemoryGame {
         if (this.userSequence[lastIndex] !== this.sequence[lastIndex]) {
             if (typeof Haptic !== 'undefined') Haptic.medium();
             this.shakeScreen(3, 6);
-            this.endGame();
+            this.lives--;
+            this.updateLivesDisplay();
+            this.showFloatingText(`❤️ x${this.lives}`, '#e74c3c');
+            if (this.lives <= 0) {
+                this.endGame();
+                return;
+            }
+            // Replay current round (forgive mistake)
+            this.userSequence = [];
+            this.isUserTurn = false;
+            this.gameStatus.textContent = window.i18n.t('game.watching') || 'Watch...';
+            setTimeout(() => this.playSequence(), 800);
             return;
         }
 
@@ -537,6 +562,18 @@ class ColorMemoryGame {
 
     updateBestScoreDisplay() {
         this.bestScoreDisplay.textContent = this.bestScore;
+    }
+
+    updateLivesDisplay() {
+        let livesEl = document.getElementById('lives-display');
+        if (!livesEl) {
+            livesEl = document.createElement('div');
+            livesEl.id = 'lives-display';
+            livesEl.style.cssText = 'text-align:center;font-size:1.2rem;margin:8px 0;letter-spacing:4px;';
+            const statsBar = document.querySelector('.stats-bar');
+            if (statsBar) statsBar.after(livesEl);
+        }
+        livesEl.textContent = '❤️'.repeat(this.lives) + '🖤'.repeat(this.maxLives - this.lives);
     }
 
     showGameScreen() {
