@@ -46,5 +46,13 @@
     "totalPlays": "Total de juegos",
     "averageScore": "Puntuación promedio",
     "highestLevel": "Nivel más alto"
+  },
+  "error": {
+    "storage": "Algunas funciones pueden estar limitadas en modo privado.",
+    "data": "Error al cargar datos. Actualice la página.",
+    "canvas": "Problema de renderizado. Inténtelo de nuevo.",
+    "audio": "Audio no disponible. Puede continuar.",
+    "network": "Verifique su conexión e inténtelo de nuevo.",
+    "general": "Algo salió mal. Actualice o inténtelo de nuevo."
   }
 }

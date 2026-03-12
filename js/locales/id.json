@@ -46,5 +46,13 @@
     "totalPlays": "Total permainan",
     "averageScore": "Skor rata-rata",
     "highestLevel": "Tingkat tertinggi"
+  },
+  "error": {
+    "storage": "Beberapa fitur mungkin terbatas dalam mode privat.",
+    "data": "Kesalahan memuat data. Silakan muat ulang.",
+    "canvas": "Masalah rendering grafis. Silakan coba lagi.",
+    "audio": "Audio tidak tersedia. Anda dapat melanjutkan.",
+    "network": "Periksa koneksi Anda dan coba lagi.",
+    "general": "Terjadi kesalahan. Muat ulang atau coba lagi."
   }
 }
