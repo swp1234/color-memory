@@ -671,6 +671,24 @@ class ColorMemoryGame {
 
     updateRoundDisplay() {
         this.roundDisplay.textContent = this.round;
+
+        // Difficulty tier badge
+        let tierEl = document.getElementById('difficulty-tier');
+        if (!tierEl) {
+            tierEl = document.createElement('div');
+            tierEl.id = 'difficulty-tier';
+            tierEl.style.cssText = 'text-align:center;font-size:0.75rem;font-weight:700;letter-spacing:2px;margin-top:4px;transition:color 0.3s;';
+            this.roundDisplay.parentElement?.appendChild(tierEl);
+        }
+        let tier, color;
+        if (this.round <= 5) { tier = 'EASY'; color = '#10b981'; }
+        else if (this.round <= 10) { tier = 'NORMAL'; color = '#3b82f6'; }
+        else if (this.round <= 20) { tier = 'HARD'; color = '#f59e0b'; }
+        else if (this.round <= 35) { tier = 'EXPERT'; color = '#ef4444'; }
+        else if (this.round <= 50) { tier = 'MASTER'; color = '#a855f7'; }
+        else { tier = 'LEGEND'; color = '#fbbf24'; }
+        tierEl.textContent = tier;
+        tierEl.style.color = color;
     }
 
     updateScoreDisplay() {
