@@ -63,6 +63,11 @@ class ColorMemoryGame {
         // Pulse start button to draw attention
         if (this.startBtn) this.startBtn.classList.add('pulse');
 
+        // Pattern preview preference
+        this.skipPreview = this._loadSkipPreview();
+        this._createPreviewOverlay();
+        this._createSkipPreviewToggle();
+
         // GA4 engagement tracking
         this.engagementTracked = false;
         this.trackFirstInteraction();
@@ -264,6 +269,111 @@ class ColorMemoryGame {
         this.startBtn.disabled = false;
     }
 
+    // ========================
+    // Pattern Preview
+    // ========================
+
+    _loadSkipPreview() {
+        try {
+            return localStorage.getItem('colorMemory_skipPreview') === 'true';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    _saveSkipPreview(val) {
+        try {
+            localStorage.setItem('colorMemory_skipPreview', val ? 'true' : 'false');
+        } catch (e) { /* ignore */ }
+    }
+
+    _createPreviewOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'preview-overlay';
+        overlay.id = 'preview-overlay';
+        overlay.innerHTML = '<div class="preview-text" id="preview-text">MEMORIZE!</div><div class="preview-countdown" id="preview-countdown"></div>';
+        document.body.appendChild(overlay);
+        this.previewOverlay = overlay;
+        this.previewTextEl = overlay.querySelector('#preview-text');
+        this.previewCountdownEl = overlay.querySelector('#preview-countdown');
+    }
+
+    _createSkipPreviewToggle() {
+        const container = document.querySelector('.game-controls');
+        if (!container) return;
+        const label = document.createElement('label');
+        label.className = 'skip-preview-toggle';
+        label.innerHTML = '<input type="checkbox" id="skip-preview-cb"' + (this.skipPreview ? ' checked' : '') + '> <span data-i18n="game.skipPreview">Skip Preview</span>';
+        container.after(label);
+        const cb = label.querySelector('#skip-preview-cb');
+        cb.addEventListener('change', () => {
+            this.skipPreview = cb.checked;
+            this._saveSkipPreview(this.skipPreview);
+        });
+    }
+
+    getPreviewDuration() {
+        // Preview time decreases with difficulty
+        if (this.round <= 10) return 2000;      // Easy: 2s
+        if (this.round <= 20) return 1500;       // Medium: 1.5s
+        if (this.round <= 35) return 1000;       // Hard: 1s
+        return 500;                               // Very hard: 0.5s
+    }
+
+    showPatternPreview() {
+        return new Promise((resolve) => {
+            if (this.skipPreview) {
+                resolve();
+                return;
+            }
+
+            const duration = this.getPreviewDuration();
+            const memorizeText = (window.i18n && window.i18n.t('game.memorize')) || 'MEMORIZE!';
+
+            // Update overlay text
+            this.previewTextEl.textContent = memorizeText;
+
+            // Light up all color buttons that appear in the sequence
+            const uniqueColors = [...new Set(this.sequence)];
+            this.colorGrid.classList.add('preview-mode');
+            uniqueColors.forEach(color => {
+                const btn = document.querySelector(`[data-color="${color}"]`);
+                if (btn) btn.classList.add('preview-active');
+            });
+
+            // Show overlay
+            this.previewOverlay.classList.add('active');
+
+            // Countdown display
+            let remaining = Math.ceil(duration / 1000);
+            this.previewCountdownEl.textContent = remaining;
+            const countdownInterval = setInterval(() => {
+                remaining--;
+                if (remaining > 0) {
+                    this.previewCountdownEl.textContent = remaining;
+                } else {
+                    this.previewCountdownEl.textContent = '';
+                }
+            }, 1000);
+
+            // End preview after duration
+            setTimeout(() => {
+                clearInterval(countdownInterval);
+
+                // Remove preview classes
+                uniqueColors.forEach(color => {
+                    const btn = document.querySelector(`[data-color="${color}"]`);
+                    if (btn) btn.classList.remove('preview-active');
+                });
+                this.colorGrid.classList.remove('preview-mode');
+                this.previewOverlay.classList.remove('active');
+
+                // Brief pause before sequence plays
+                setTimeout(() => resolve(), 300);
+            }, duration);
+        });
+    }
+
     playRound() {
         if (this.gameOver) return;
 
@@ -293,12 +403,19 @@ class ColorMemoryGame {
         this.updateRoundDisplay();
         this.updateScoreDisplay();
         this.startBtn.disabled = true;
-        this.gameStatus.textContent = window.i18n.t('game.watching');
 
-        // Play sequence with delay
-        setTimeout(() => {
-            this.playSequence();
-        }, 500);
+        // Show pattern preview then play sequence
+        const memorizeText = (window.i18n && window.i18n.t('game.memorize')) || 'MEMORIZE!';
+        this.gameStatus.textContent = this.skipPreview
+            ? (window.i18n.t('game.watching') || 'Watch...')
+            : memorizeText;
+
+        this.showPatternPreview().then(() => {
+            this.gameStatus.textContent = window.i18n.t('game.watching') || 'Watch...';
+            setTimeout(() => {
+                this.playSequence();
+            }, 300);
+        });
     }
 
     playSequence() {

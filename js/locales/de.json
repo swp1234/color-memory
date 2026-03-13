@@ -20,7 +20,9 @@
       "wrong": "Falsch!"
     },
     "objective": "Merke dir die Farbfolge und wiederhole sie!",
-    "objectiveHint": "Die Folge wird jede Runde länger"
+    "objectiveHint": "Die Folge wird jede Runde länger",
+    "memorize": "MERKEN!",
+    "skipPreview": "Vorschau überspringen"
   },
   "button": {
     "start": "Start",

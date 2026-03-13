@@ -20,7 +20,9 @@
       "wrong": "Incorrect !"
     },
     "objective": "Observez la séquence de couleurs et répétez-la de mémoire !",
-    "objectiveHint": "La séquence s'allonge à chaque manche"
+    "objectiveHint": "La séquence s'allonge à chaque manche",
+    "memorize": "MÉMORISEZ !",
+    "skipPreview": "Passer l'aperçu"
   },
   "button": {
     "start": "Commencer",

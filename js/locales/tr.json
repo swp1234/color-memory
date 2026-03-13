@@ -20,7 +20,9 @@
       "wrong": "Yanlış!"
     },
     "objective": "Renk sırasını izleyin ve hafızadan tekrarlayın!",
-    "objectiveHint": "Her turda sıra uzar"
+    "objectiveHint": "Her turda sıra uzar",
+    "memorize": "EZBERLE!",
+    "skipPreview": "Onizlemeyi atla"
   },
   "button": {
     "start": "Başla",

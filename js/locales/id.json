@@ -20,7 +20,9 @@
       "wrong": "Salah!"
     },
     "objective": "Perhatikan urutan warna dan ulangi dari ingatan!",
-    "objectiveHint": "Urutan semakin panjang setiap ronde"
+    "objectiveHint": "Urutan semakin panjang setiap ronde",
+    "memorize": "INGAT!",
+    "skipPreview": "Lewati pratinjau"
   },
   "button": {
     "start": "Mulai",
