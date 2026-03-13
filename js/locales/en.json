@@ -22,7 +22,14 @@
     "objective": "Watch the color sequence and repeat it from memory!",
     "objectiveHint": "The sequence gets longer each round",
     "memorize": "MEMORIZE!",
-    "skipPreview": "Skip Preview"
+    "skipPreview": "Skip Preview",
+    "moreGames": "More Games"
+  },
+  "related": {
+    "memoryCard": "Memory Card",
+    "emojiMerge": "Emoji Merge",
+    "blockPuzzle": "Block Puzzle",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "Start",

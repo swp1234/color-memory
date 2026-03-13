@@ -22,7 +22,14 @@
     "objective": "रंगों का क्रम देखें और याद से दोहराएं!",
     "objectiveHint": "हर राउंड में क्रम लंबा होता जाता है",
     "memorize": "याद करो!",
-    "skipPreview": "पूर्वावलोकन छोड़ें"
+    "skipPreview": "पूर्वावलोकन छोड़ें",
+    "moreGames": "और गेम"
+  },
+  "related": {
+    "memoryCard": "मेमोरी कार्ड",
+    "emojiMerge": "इमोजी मर्ज",
+    "blockPuzzle": "ब्लॉक पज़ल",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "शुरू करें",

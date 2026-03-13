@@ -22,7 +22,14 @@
     "objective": "Perhatikan urutan warna dan ulangi dari ingatan!",
     "objectiveHint": "Urutan semakin panjang setiap ronde",
     "memorize": "INGAT!",
-    "skipPreview": "Lewati pratinjau"
+    "skipPreview": "Lewati pratinjau",
+    "moreGames": "Game Lainnya"
+  },
+  "related": {
+    "memoryCard": "Kartu Memori",
+    "emojiMerge": "Emoji Merge",
+    "blockPuzzle": "Puzzle Blok",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "Mulai",

@@ -22,7 +22,14 @@
     "objective": "色の順番を覚えて繰り返してください！",
     "objectiveHint": "ラウンドごとにシーケンスが長くなります",
     "memorize": "覚えて！",
-    "skipPreview": "プレビューをスキップ"
+    "skipPreview": "プレビューをスキップ",
+    "moreGames": "おすすめゲーム"
+  },
+  "related": {
+    "memoryCard": "メモリーカード",
+    "emojiMerge": "絵文字マージ",
+    "blockPuzzle": "ブロックパズル",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "スタート",

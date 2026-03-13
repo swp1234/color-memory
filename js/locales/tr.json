@@ -22,7 +22,14 @@
     "objective": "Renk sırasını izleyin ve hafızadan tekrarlayın!",
     "objectiveHint": "Her turda sıra uzar",
     "memorize": "EZBERLE!",
-    "skipPreview": "Onizlemeyi atla"
+    "skipPreview": "Onizlemeyi atla",
+    "moreGames": "Daha Fazla Oyun"
+  },
+  "related": {
+    "memoryCard": "Hafıza Kartı",
+    "emojiMerge": "Emoji Birleştir",
+    "blockPuzzle": "Blok Bulmaca",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "Başla",

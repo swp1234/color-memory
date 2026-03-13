@@ -22,7 +22,14 @@
     "objective": "Merke dir die Farbfolge und wiederhole sie!",
     "objectiveHint": "Die Folge wird jede Runde länger",
     "memorize": "MERKEN!",
-    "skipPreview": "Vorschau überspringen"
+    "skipPreview": "Vorschau überspringen",
+    "moreGames": "Mehr Spiele"
+  },
+  "related": {
+    "memoryCard": "Memory-Karten",
+    "emojiMerge": "Emoji Merge",
+    "blockPuzzle": "Block-Puzzle",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "Start",

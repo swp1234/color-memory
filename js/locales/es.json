@@ -22,7 +22,14 @@
     "objective": "¡Observa la secuencia de colores y repítela de memoria!",
     "objectiveHint": "La secuencia se alarga cada ronda",
     "memorize": "¡MEMORIZA!",
-    "skipPreview": "Saltar vista previa"
+    "skipPreview": "Saltar vista previa",
+    "moreGames": "Más juegos"
+  },
+  "related": {
+    "memoryCard": "Tarjetas de memoria",
+    "emojiMerge": "Emoji Merge",
+    "blockPuzzle": "Puzzle de bloques",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "Comenzar",

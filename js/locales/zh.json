@@ -22,7 +22,14 @@
     "objective": "记住颜色顺序并重复！",
     "objectiveHint": "每轮序列会变得更长",
     "memorize": "记住！",
-    "skipPreview": "跳过预览"
+    "skipPreview": "跳过预览",
+    "moreGames": "更多游戏"
+  },
+  "related": {
+    "memoryCard": "记忆卡片",
+    "emojiMerge": "表情合并",
+    "blockPuzzle": "方块拼图",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "开始",

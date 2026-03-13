@@ -1294,6 +1294,78 @@ select:focus-visible {
     }
 }
 
+/* ========================
+   Related Games Cross-Promo
+   ======================== */
+
+.related-tests {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.related-tests h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.related-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--light-text);
+    transition: all 0.2s ease;
+    min-height: 44px;
+}
+
+.related-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--card-color, rgba(255, 255, 255, 0.2));
+    transform: translateY(-1px);
+}
+
+.related-emoji {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.related-name {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[data-theme="light"] .related-tests {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .related-card {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--light-text);
+}
+
+[data-theme="light"] .related-card:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
 /* Selection Color */
 ::selection {
     background: #FF6B6B;

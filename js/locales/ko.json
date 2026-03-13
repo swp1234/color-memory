@@ -22,7 +22,14 @@
     "objective": "색상 순서를 기억하고 따라하세요!",
     "objectiveHint": "라운드마다 시퀀스가 길어집니다",
     "memorize": "기억하세요!",
-    "skipPreview": "미리보기 건너뛰기"
+    "skipPreview": "미리보기 건너뛰기",
+    "moreGames": "추천 게임"
+  },
+  "related": {
+    "memoryCard": "메모리 카드",
+    "emojiMerge": "이모지 머지",
+    "blockPuzzle": "블록 퍼즐",
+    "puzzle2048": "2048"
   },
   "button": {
     "start": "시작",
