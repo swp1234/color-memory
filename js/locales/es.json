@@ -23,7 +23,19 @@
     "objectiveHint": "La secuencia se alarga cada ronda",
     "memorize": "¡MEMORIZA!",
     "skipPreview": "Saltar vista previa",
-    "moreGames": "Más juegos"
+    "moreGames": "Más juegos",
+    "streak": "Racha",
+    "milestone5": "Bien! Nivel 5!",
+    "milestone10": "Increible! Nivel 10!",
+    "milestone15": "Asombroso! Nivel 15!",
+    "milestone20": "Legendario! Nivel 20!",
+    "newBest": "NUEVO RECORD!",
+    "tutorialTitle": "Como jugar",
+    "tutorialStep1": "Observa la secuencia de colores",
+    "tutorialStep2": "Repite los colores en orden",
+    "tutorialStep3": "Cada ronda agrega un color mas",
+    "tutorialGotIt": "Entendido!",
+    "tapToStart": "Toca para empezar"
   },
   "related": {
     "memoryCard": "Tarjetas de memoria",

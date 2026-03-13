@@ -23,7 +23,19 @@
     "objectiveHint": "라운드마다 시퀀스가 길어집니다",
     "memorize": "기억하세요!",
     "skipPreview": "미리보기 건너뛰기",
-    "moreGames": "추천 게임"
+    "moreGames": "추천 게임",
+    "streak": "연속",
+    "milestone5": "좋아요! 레벨 5!",
+    "milestone10": "대단해요! 레벨 10!",
+    "milestone15": "믿기 어려워요! 레벨 15!",
+    "milestone20": "전설이에요! 레벨 20!",
+    "newBest": "최고 기록!",
+    "tutorialTitle": "플레이 방법",
+    "tutorialStep1": "색상 순서가 번쩍이는 것을 관찰하세요",
+    "tutorialStep2": "같은 순서로 색상을 반복하세요",
+    "tutorialStep3": "매 라운드 색상이 하나씩 추가됩니다",
+    "tutorialGotIt": "알겠어요!",
+    "tapToStart": "터치해서 시작"
   },
   "related": {
     "memoryCard": "메모리 카드",

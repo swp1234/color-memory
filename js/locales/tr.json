@@ -23,7 +23,19 @@
     "objectiveHint": "Her turda sıra uzar",
     "memorize": "EZBERLE!",
     "skipPreview": "Onizlemeyi atla",
-    "moreGames": "Daha Fazla Oyun"
+    "moreGames": "Daha Fazla Oyun",
+    "streak": "Seri",
+    "milestone5": "Guzel! Seviye 5!",
+    "milestone10": "Harika! Seviye 10!",
+    "milestone15": "Inanilmaz! Seviye 15!",
+    "milestone20": "Efsanevi! Seviye 20!",
+    "newBest": "YENI REKOR!",
+    "tutorialTitle": "Nasil Oynanir",
+    "tutorialStep1": "Yanan renk sirasini izleyin",
+    "tutorialStep2": "Renkleri ayni sirada tekrarlayin",
+    "tutorialStep3": "Her tur bir renk daha eklenir",
+    "tutorialGotIt": "Anladim!",
+    "tapToStart": "Baslamak icin dokun"
   },
   "related": {
     "memoryCard": "Hafıza Kartı",

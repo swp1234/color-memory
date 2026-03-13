@@ -23,7 +23,19 @@
     "objectiveHint": "हर राउंड में क्रम लंबा होता जाता है",
     "memorize": "याद करो!",
     "skipPreview": "पूर्वावलोकन छोड़ें",
-    "moreGames": "और गेम"
+    "moreGames": "और गेम",
+    "streak": "लगातार",
+    "milestone5": "बहुत अच्छे! लेवल 5!",
+    "milestone10": "शानदार! लेवल 10!",
+    "milestone15": "अविश्वसनीय! लेवल 15!",
+    "milestone20": "किंवदंती! लेवल 20!",
+    "newBest": "नया सर्वश्रेष्ठ!",
+    "tutorialTitle": "कैसे खेलें",
+    "tutorialStep1": "रंगों के चमकने का क्रम देखें",
+    "tutorialStep2": "उसी क्रम में रंगों को दोहराएं",
+    "tutorialStep3": "हर राउंड में एक रंग और जुड़ता है",
+    "tutorialGotIt": "समझ गया!",
+    "tapToStart": "शुरू करने के लिए टैप करें"
   },
   "related": {
     "memoryCard": "मेमोरी कार्ड",

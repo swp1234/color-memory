@@ -23,7 +23,19 @@
     "objectiveHint": "Urutan semakin panjang setiap ronde",
     "memorize": "INGAT!",
     "skipPreview": "Lewati pratinjau",
-    "moreGames": "Game Lainnya"
+    "moreGames": "Game Lainnya",
+    "streak": "Beruntun",
+    "milestone5": "Bagus! Level 5!",
+    "milestone10": "Luar biasa! Level 10!",
+    "milestone15": "Tak terpercaya! Level 15!",
+    "milestone20": "Legendaris! Level 20!",
+    "newBest": "REKOR BARU!",
+    "tutorialTitle": "Cara Bermain",
+    "tutorialStep1": "Perhatikan urutan warna yang berkedip",
+    "tutorialStep2": "Ulangi warna sesuai urutan",
+    "tutorialStep3": "Setiap ronde menambahkan satu warna",
+    "tutorialGotIt": "Mengerti!",
+    "tapToStart": "Ketuk untuk mulai"
   },
   "related": {
     "memoryCard": "Kartu Memori",

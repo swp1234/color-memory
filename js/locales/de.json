@@ -23,7 +23,19 @@
     "objectiveHint": "Die Folge wird jede Runde länger",
     "memorize": "MERKEN!",
     "skipPreview": "Vorschau überspringen",
-    "moreGames": "Mehr Spiele"
+    "moreGames": "Mehr Spiele",
+    "streak": "Serie",
+    "milestone5": "Super! Level 5!",
+    "milestone10": "Fantastisch! Level 10!",
+    "milestone15": "Unglaublich! Level 15!",
+    "milestone20": "Legendar! Level 20!",
+    "newBest": "NEUER REKORD!",
+    "tutorialTitle": "Spielanleitung",
+    "tutorialStep1": "Beobachte die aufblitzende Farbfolge",
+    "tutorialStep2": "Wiederhole die Farben in der Reihenfolge",
+    "tutorialStep3": "Jede Runde kommt eine Farbe hinzu",
+    "tutorialGotIt": "Verstanden!",
+    "tapToStart": "Tippen zum Starten"
   },
   "related": {
     "memoryCard": "Memory-Karten",

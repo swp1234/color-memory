@@ -68,6 +68,20 @@ class ColorMemoryGame {
         this._createPreviewOverlay();
         this._createSkipPreviewToggle();
 
+        // Streak tracking
+        this.streak = 0;
+        this._createStreakBar();
+
+        // Milestone overlay
+        this._createMilestoneOverlay();
+
+        // Tutorial (first visit only)
+        this._createTutorialOverlay();
+        this._showTutorialIfFirstVisit();
+
+        // Intro demo animation (runs on page load)
+        this._playIntroDemo();
+
         // GA4 engagement tracking
         this.engagementTracked = false;
         this.trackFirstInteraction();
@@ -148,7 +162,8 @@ class ColorMemoryGame {
             el.style.cssText = 'position:fixed;top:20%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:32px;font-weight:800;color:#fbbf24;text-shadow:0 0 30px rgba(251,191,36,0.6);pointer-events:none;z-index:200;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),opacity 0.4s;opacity:0;white-space:nowrap;';
             document.body.appendChild(el);
         }
-        el.textContent = '\uD83C\uDFC6 NEW BEST!';
+        const newBestText = (window.i18n && window.i18n.t('game.newBest')) || 'NEW BEST!';
+        el.textContent = '\uD83C\uDFC6 ' + newBestText;
         el.style.transform = 'translate(-50%,-50%) scale(1.2)';
         el.style.opacity = '1';
         setTimeout(() => {
@@ -236,6 +251,10 @@ class ColorMemoryGame {
         this.playCount = 0;
         this.speed = 600;
 
+        // Reset streak
+        this.streak = 0;
+        this._updateStreak(false);
+
         // Pre-seed sequence with 2 colors so round 1 starts with 3
         const colors = ['red', 'blue', 'green', 'yellow'];
         this.sequence = [
@@ -310,6 +329,197 @@ class ColorMemoryGame {
             this.skipPreview = cb.checked;
             this._saveSkipPreview(this.skipPreview);
         });
+    }
+
+    // ========================
+    // Intro Demo Animation
+    // ========================
+
+    _playIntroDemo() {
+        // Skip if tutorial is showing
+        try {
+            if (localStorage.getItem('colorMemory_tutorialSeen') !== 'true') return;
+        } catch (e) { /* proceed */ }
+
+        const colors = ['red', 'blue', 'green', 'yellow'];
+        const demoSequence = ['red', 'blue', 'green', 'yellow', 'red', 'green'];
+        let i = 0;
+
+        this.colorGrid.classList.add('intro-demo-active');
+
+        const flashNext = () => {
+            if (i >= demoSequence.length) {
+                this.colorGrid.classList.remove('intro-demo-active');
+                return;
+            }
+            const color = demoSequence[i];
+            const btn = document.querySelector(`[data-color="${color}"]`);
+            if (btn) {
+                btn.classList.add('demo-flash');
+                this.playSound(color);
+                setTimeout(() => btn.classList.remove('demo-flash'), 250);
+            }
+            i++;
+            setTimeout(flashNext, 350);
+        };
+
+        // Delay slightly after page load
+        setTimeout(flashNext, 600);
+    }
+
+    // ========================
+    // Tutorial Overlay
+    // ========================
+
+    _createTutorialOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'tutorial-overlay';
+        overlay.id = 'tutorial-overlay';
+
+        const t = (key) => (window.i18n && window.i18n.t(key)) || key;
+
+        overlay.innerHTML = `
+            <div class="tutorial-card">
+                <h3 data-i18n="game.tutorialTitle">${t('game.tutorialTitle')}</h3>
+                <div class="tutorial-steps">
+                    <div class="tutorial-step">
+                        <div class="tutorial-step-num">1</div>
+                        <div class="tutorial-step-text" data-i18n="game.tutorialStep1">${t('game.tutorialStep1')}</div>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="tutorial-step-num">2</div>
+                        <div class="tutorial-step-text" data-i18n="game.tutorialStep2">${t('game.tutorialStep2')}</div>
+                    </div>
+                    <div class="tutorial-step">
+                        <div class="tutorial-step-num">3</div>
+                        <div class="tutorial-step-text" data-i18n="game.tutorialStep3">${t('game.tutorialStep3')}</div>
+                    </div>
+                </div>
+                <button class="tutorial-btn" id="tutorial-close-btn" data-i18n="game.tutorialGotIt">${t('game.tutorialGotIt')}</button>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        overlay.querySelector('#tutorial-close-btn').addEventListener('click', () => {
+            overlay.classList.remove('active');
+            try { localStorage.setItem('colorMemory_tutorialSeen', 'true'); } catch (e) { /* ignore */ }
+            // Play intro demo after tutorial closes
+            setTimeout(() => this._playIntroDemo(), 400);
+        });
+    }
+
+    _showTutorialIfFirstVisit() {
+        try {
+            if (localStorage.getItem('colorMemory_tutorialSeen') === 'true') return;
+        } catch (e) { return; }
+
+        const overlay = document.getElementById('tutorial-overlay');
+        if (overlay) {
+            setTimeout(() => overlay.classList.add('active'), 500);
+        }
+    }
+
+    // ========================
+    // Streak Counter
+    // ========================
+
+    _createStreakBar() {
+        const bar = document.createElement('div');
+        bar.className = 'streak-bar';
+        bar.id = 'streak-bar';
+        bar.innerHTML = '<span class="streak-icon">&#x1F525;</span><span class="streak-count" id="streak-count">0</span><span class="streak-label" data-i18n="game.streak">' + ((window.i18n && window.i18n.t('game.streak')) || 'Streak') + '</span>';
+
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) statsBar.after(bar);
+    }
+
+    _updateStreak(correct) {
+        if (correct) {
+            this.streak++;
+        } else {
+            this.streak = 0;
+        }
+
+        const bar = document.getElementById('streak-bar');
+        const count = document.getElementById('streak-count');
+        if (!bar || !count) return;
+
+        count.textContent = this.streak;
+
+        if (this.streak >= 1) {
+            bar.classList.add('visible');
+        } else {
+            bar.classList.remove('visible');
+        }
+
+        // Intensity tiers
+        bar.classList.remove('hot', 'fire');
+        if (this.streak >= 10) {
+            bar.classList.add('fire');
+        } else if (this.streak >= 5) {
+            bar.classList.add('hot');
+        }
+    }
+
+    // ========================
+    // Milestone Celebrations
+    // ========================
+
+    _createMilestoneOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'milestone-overlay';
+        overlay.id = 'milestone-overlay';
+        overlay.innerHTML = '<div class="milestone-content"><span class="milestone-emoji" id="milestone-emoji"></span><span class="milestone-text" id="milestone-text"></span></div>';
+        document.body.appendChild(overlay);
+    }
+
+    _showMilestoneCelebration(round) {
+        const milestones = {
+            5:  { emoji: '\u2B50', key: 'game.milestone5',  color: '#10b981' },
+            10: { emoji: '\uD83C\uDF1F', key: 'game.milestone10', color: '#3b82f6' },
+            15: { emoji: '\uD83D\uDD25', key: 'game.milestone15', color: '#f59e0b' },
+            20: { emoji: '\uD83D\uDC8E', key: 'game.milestone20', color: '#a855f7' },
+            25: { emoji: '\uD83D\uDE80', key: 'game.milestone20', color: '#ef4444' },
+            30: { emoji: '\uD83D\uDC51', key: 'game.milestone20', color: '#fbbf24' }
+        };
+
+        const m = milestones[round];
+        if (!m) return;
+
+        const overlay = document.getElementById('milestone-overlay');
+        const emojiEl = document.getElementById('milestone-emoji');
+        const textEl = document.getElementById('milestone-text');
+        if (!overlay || !emojiEl || !textEl) return;
+
+        emojiEl.textContent = m.emoji;
+        textEl.textContent = (window.i18n && window.i18n.t(m.key)) || `Level ${round}!`;
+        textEl.style.color = m.color;
+
+        overlay.classList.add('active');
+
+        // Mini confetti burst for milestones
+        this._milestoneConfetti(m.color);
+
+        setTimeout(() => overlay.classList.remove('active'), 1800);
+    }
+
+    _milestoneConfetti(color) {
+        const container = this.confettiContainer;
+        if (!container) return;
+        const colors = [color, '#FFD700', '#FF6B6B', '#4ECDC4'];
+        for (let i = 0; i < 20; i++) {
+            const piece = document.createElement('div');
+            piece.classList.add('confetti');
+            piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.left = (Math.random() * window.innerWidth) + 'px';
+            piece.style.top = (-20 - Math.random() * 100) + 'px';
+            const duration = 1.5 + Math.random() * 1;
+            const delay = Math.random() * 0.3;
+            piece.style.animation = `fall ${duration}s linear ${delay}s forwards`;
+            container.appendChild(piece);
+            setTimeout(() => piece.remove(), (duration + delay) * 1000);
+        }
     }
 
     getPreviewDuration() {
@@ -490,10 +700,11 @@ class ColorMemoryGame {
         const lastIndex = this.userSequence.length - 1;
         if (this.userSequence[lastIndex] !== this.sequence[lastIndex]) {
             if (typeof Haptic !== 'undefined') Haptic.medium();
+            this._updateStreak(false);
             this.shakeScreen(3, 6);
             this.lives--;
             this.updateLivesDisplay();
-            this.showFloatingText(`❤️ x${this.lives}`, '#e74c3c');
+            this.showFloatingText(`\u2764\uFE0F x${this.lives}`, '#e74c3c');
             if (this.lives <= 0) {
                 this.endGame();
                 return;
@@ -511,6 +722,9 @@ class ColorMemoryGame {
             this.isUserTurn = false;
             if (typeof Haptic !== 'undefined') Haptic.light();
 
+            // Update streak
+            this._updateStreak(true);
+
             // Play success sound
             if (window.sfx) {
                 if (!window.sfx.initialized) {
@@ -520,19 +734,26 @@ class ColorMemoryGame {
             }
 
             // Floating "Correct!" text
-            this.showFloatingText('Correct!', '#2ecc71');
+            const correctText = (window.i18n && window.i18n.t('game.message.correct')) || 'Correct!';
+            this.showFloatingText(correctText, '#2ecc71');
 
-            // Show streak milestones every 5 rounds
-            if (this.round > 0 && this.round % 5 === 0) {
-                this.showFloatingStreak(this.round);
+            // Live PB tracking - show "NEW BEST!" as you play
+            const currentScore = this.round;
+            if (currentScore > this.bestScore) {
+                this.bestScore = currentScore;
+                this._saveBestScore(this.bestScore);
+                this.updateBestScoreDisplay();
+                this.showNewBest();
+            }
+
+            // Milestone celebrations at key rounds
+            if ([5, 10, 15, 20, 25, 30].includes(this.round)) {
+                this._showMilestoneCelebration(this.round);
             }
 
             setTimeout(() => {
                 this.round++;
                 this.playCount++;
-
-                // Level milestone popup at each new round
-                this.showLevelMilestone(this.round);
 
                 // Check for interstitial ad every 3 plays
                 if (this.playCount % 3 === 0) {
@@ -697,6 +918,14 @@ class ColorMemoryGame {
 
     updateBestScoreDisplay() {
         this.bestScoreDisplay.textContent = this.bestScore;
+        // Add PB badge if score > 0
+        let badge = this.bestScoreDisplay.parentElement?.querySelector('.pb-badge');
+        if (this.bestScore > 0 && !badge) {
+            badge = document.createElement('span');
+            badge.className = 'pb-badge';
+            badge.textContent = 'PB';
+            this.bestScoreDisplay.parentElement?.appendChild(badge);
+        }
     }
 
     updateLivesDisplay() {
@@ -730,18 +959,6 @@ class ColorMemoryGame {
         setTimeout(() => { this.colorGrid.style.animation = ''; }, 450);
     }
 
-    showFloatingStreak(round) {
-        const el = document.createElement('div');
-        el.textContent = `${round} STREAK!`;
-        el.style.cssText = 'position:fixed;top:30%;left:50%;transform:translateX(-50%);font-size:28px;font-weight:bold;color:#FFD700;z-index:9999;pointer-events:none;text-shadow:0 0 10px rgba(255,215,0,0.5);opacity:1;transition:all 1s ease-out;';
-        document.body.appendChild(el);
-        requestAnimationFrame(() => {
-            el.style.top = '20%';
-            el.style.opacity = '0';
-        });
-        setTimeout(() => el.remove(), 1200);
-    }
-
     showFloatingText(text, color = '#2ecc71') {
         const el = document.createElement('div');
         el.textContent = text;
@@ -768,21 +985,7 @@ class ColorMemoryGame {
         }, duration + 50);
     }
 
-    showLevelMilestone(round) {
-        const el = document.createElement('div');
-        el.textContent = 'Level ' + round + '!';
-        el.style.cssText = 'position:fixed;top:45%;left:50%;transform:translate(-50%,-50%) scale(0.5);font-size:32px;font-weight:900;color:#3498db;z-index:9999;pointer-events:none;text-shadow:0 0 15px rgba(52,152,219,0.5);opacity:0;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);';
-        document.body.appendChild(el);
-        requestAnimationFrame(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translate(-50%,-50%) scale(1)';
-        });
-        setTimeout(() => {
-            el.style.opacity = '0';
-            el.style.transform = 'translate(-50%,-50%) scale(1.3)';
-        }, 800);
-        setTimeout(() => el.remove(), 1300);
-    }
+    // showLevelMilestone replaced by _showMilestoneCelebration
 
     // ========================
     // Confetti Effect

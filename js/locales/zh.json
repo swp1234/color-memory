@@ -23,7 +23,19 @@
     "objectiveHint": "每轮序列会变得更长",
     "memorize": "记住！",
     "skipPreview": "跳过预览",
-    "moreGames": "更多游戏"
+    "moreGames": "更多游戏",
+    "streak": "连击",
+    "milestone5": "不错！第5级！",
+    "milestone10": "太棒了！第10级！",
+    "milestone15": "难以置信！第15级！",
+    "milestone20": "传奇！第20级！",
+    "newBest": "新纪录！",
+    "tutorialTitle": "玩法说明",
+    "tutorialStep1": "观察闪烁的颜色序列",
+    "tutorialStep2": "按顺序重复颜色",
+    "tutorialStep3": "每轮增加一种颜色",
+    "tutorialGotIt": "明白了！",
+    "tapToStart": "点击开始"
   },
   "related": {
     "memoryCard": "记忆卡片",

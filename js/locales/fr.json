@@ -23,7 +23,19 @@
     "objectiveHint": "La séquence s'allonge à chaque manche",
     "memorize": "MÉMORISEZ !",
     "skipPreview": "Passer l'aperçu",
-    "moreGames": "Plus de jeux"
+    "moreGames": "Plus de jeux",
+    "streak": "Serie",
+    "milestone5": "Bien! Niveau 5!",
+    "milestone10": "Incroyable! Niveau 10!",
+    "milestone15": "Phenomenal! Niveau 15!",
+    "milestone20": "Legendaire! Niveau 20!",
+    "newBest": "NOUVEAU RECORD!",
+    "tutorialTitle": "Comment jouer",
+    "tutorialStep1": "Observez la sequence de couleurs clignotante",
+    "tutorialStep2": "Repetez les couleurs dans l'ordre",
+    "tutorialStep3": "Chaque manche ajoute une couleur",
+    "tutorialGotIt": "Compris!",
+    "tapToStart": "Appuyez pour commencer"
   },
   "related": {
     "memoryCard": "Cartes mémoire",

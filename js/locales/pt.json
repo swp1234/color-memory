@@ -23,7 +23,19 @@
     "objectiveHint": "A sequência fica mais longa a cada rodada",
     "memorize": "MEMORIZE!",
     "skipPreview": "Pular preview",
-    "moreGames": "Mais jogos"
+    "moreGames": "Mais jogos",
+    "streak": "Sequencia",
+    "milestone5": "Legal! Nivel 5!",
+    "milestone10": "Incrivel! Nivel 10!",
+    "milestone15": "Fenomenal! Nivel 15!",
+    "milestone20": "Lendario! Nivel 20!",
+    "newBest": "NOVO RECORDE!",
+    "tutorialTitle": "Como jogar",
+    "tutorialStep1": "Observe a sequencia de cores piscando",
+    "tutorialStep2": "Repita as cores na ordem",
+    "tutorialStep3": "Cada rodada adiciona uma cor",
+    "tutorialGotIt": "Entendi!",
+    "tapToStart": "Toque para comecar"
   },
   "related": {
     "memoryCard": "Cartão de memória",

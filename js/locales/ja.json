@@ -23,7 +23,19 @@
     "objectiveHint": "ラウンドごとにシーケンスが長くなります",
     "memorize": "覚えて！",
     "skipPreview": "プレビューをスキップ",
-    "moreGames": "おすすめゲーム"
+    "moreGames": "おすすめゲーム",
+    "streak": "連続",
+    "milestone5": "ナイス！レベル5！",
+    "milestone10": "すごい！レベル10！",
+    "milestone15": "信じられない！レベル15！",
+    "milestone20": "伝説的！レベル20！",
+    "newBest": "新記録！",
+    "tutorialTitle": "遊び方",
+    "tutorialStep1": "光る色の順番を見てください",
+    "tutorialStep2": "同じ順番で色を繰り返してください",
+    "tutorialStep3": "毎ラウンド色が1つ追加されます",
+    "tutorialGotIt": "わかった！",
+    "tapToStart": "タップして開始"
   },
   "related": {
     "memoryCard": "メモリーカード",

@@ -23,7 +23,19 @@
     "objectiveHint": "The sequence gets longer each round",
     "memorize": "MEMORIZE!",
     "skipPreview": "Skip Preview",
-    "moreGames": "More Games"
+    "moreGames": "More Games",
+    "streak": "Streak",
+    "milestone5": "Nice\\! Level 5\\!",
+    "milestone10": "Amazing\\! Level 10\\!",
+    "milestone15": "Incredible\\! Level 15\\!",
+    "milestone20": "Legendary\\! Level 20\\!",
+    "newBest": "NEW BEST\\!",
+    "tutorialTitle": "How to Play",
+    "tutorialStep1": "Watch the color sequence flash",
+    "tutorialStep2": "Repeat the sequence in order",
+    "tutorialStep3": "Each round adds one more color",
+    "tutorialGotIt": "Got it\\!",
+    "tapToStart": "Tap to Start"
   },
   "related": {
     "memoryCard": "Memory Card",
