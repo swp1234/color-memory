@@ -94,6 +94,69 @@
     }
     </script>
 
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Color Memory?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Color Memory is a free online brain game inspired by Simon Says. Watch the sequence of colored buttons light up, then repeat the pattern from memory. Each round adds one more color to the sequence, testing how far your memory can go."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I play Color Memory?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Press Start to begin. Watch as the colored buttons flash in a sequence. After the sequence plays, tap or click the buttons in the same order. If you get it right, a new color is added. One mistake and the game is over. Try to beat your high score!"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Color Memory free to play? Do I need to download anything?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Color Memory is completely free to play online in your browser. No download or installation is needed. Open the page and start training your memory instantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What tips can help me remember longer color sequences?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Try grouping colors into chunks of 3-4 to remember them more easily. Say the color names in your head as they flash. Focus on the new color added each round since you already know the previous ones. Practice regularly to strengthen your short-term memory."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Color Memory work on phones and tablets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! Color Memory is fully responsive and works on smartphones, tablets, and desktop computers. The large color buttons are designed for easy touch interaction on mobile devices."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "DopaBrain", "item": "https://dopabrain.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://dopabrain.com/portal/games/" },
+            { "@type": "ListItem", "position": 3, "name": "Color Memory", "item": "https://dopabrain.com/color-memory/" }
+        ]
+    }
+    </script>
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="icon-192.svg">
